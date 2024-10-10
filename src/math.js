@@ -6,20 +6,24 @@ function fatorial(n) {
   return n * fatorial(n - 1);
 }
 
-function fibonnacci(n) {
+
+function fibonacci(n) {
   if (typeof n !== 'number' && typeof n !== 'string') throw new TypeError("O argumento deve ser um número válido");
   n = Number(n);
   if (isNaN(n)) throw new TypeError("O argumento deve ser um número válido");
-  if (n <= 0) throw new Error("Não existe fibonnacci de número menor ou igual a zero");
+  if (n <= 0) throw new Error("Não existe fibonacci de número menor ou igual a zero");
+  if (n === 1) return 1;
+  if (n === 2) return 1;
 
-  let a = 0, b = 1, temp;
-  for (let i = 2; i < n; i++) {
-    temp = a + b;
+  let a = 1, b = 1;
+  for (let i = 3; i <= n; i++) {
+    let temp = a + b;
     a = b;
     b = temp;
   }
   return b;
 }
+
 
 function ehPrimo(n) {
    if (typeof n !== 'number' && typeof n !== 'string') throw new TypeError("O argumento deve ser um número válido");
@@ -34,6 +38,9 @@ function ehPrimo(n) {
 
 module.exports = {
   fatorial,
-  fibonnacci, // Certifique-se de que 'fibonnacci' está exportado aqui
+  fibonacci, // Certifique-se de que 'fibonacci' está exportado aqui
   ehPrimo
 };
+
+
+// Luis philipe Lopes Oliveira 22214290018
